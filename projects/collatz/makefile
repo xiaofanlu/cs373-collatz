@@ -14,8 +14,9 @@ RunCollatz.tmp: RunCollatz.py RunCollatz.in
 	diff RunCollatz.tmp RunCollatz.out
 
 TestCollatz.out: TestCollatz.py
-	coverage run    --branch TestCollatz.py >  TestCollatz.out 2>&1
-	coverage report -m                      >> TestCollatz.out
+	coverage3 run    --branch TestCollatz.py >  TestCollatz.out 2>&1
+	coverage3 report -m                      >> TestCollatz.out
+	touch TestCollatz.py
 
 clean:
 	rm -f .coverage
