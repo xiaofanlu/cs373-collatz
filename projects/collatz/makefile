@@ -7,15 +7,15 @@ Collatz.log:
 	git log > Collatz.log
 
 RunCollatz.out: RunCollatz.py RunCollatz.in
-	RunCollatz.py < RunCollatz.in > RunCollatz.out
+	python3	RunCollatz.py < RunCollatz.in > RunCollatz.out
 
 RunCollatz.tmp: RunCollatz.py RunCollatz.in
-	RunCollatz.py < RunCollatz.in > RunCollatz.tmp
+	python3	RunCollatz.py < RunCollatz.in > RunCollatz.tmp
 	diff RunCollatz.tmp RunCollatz.out
 
 TestCollatz.out: TestCollatz.py
-	coverage3 run    --branch TestCollatz.py >  TestCollatz.out 2>&1
-	coverage3 report -m                      >> TestCollatz.out
+	coverage run    --branch TestCollatz.py >  TestCollatz.out 2>&1
+	coverage report -m                      >> TestCollatz.out
 
 clean:
 	rm -f .coverage
