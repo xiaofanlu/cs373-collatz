@@ -30,7 +30,23 @@ def collatz_eval (i, j) :
     return the max cycle length of the range [i, j]
     """
     # <your code>
-    return 1
+    maxV = 0
+    for x in range(i, j + 1) :
+       maxV = max(maxV, collatz_solve_one(x))
+    return maxV
+
+def collatz_solve_one (i) :
+    '''
+    solve for a single number
+    '''
+    count = 1
+    while i != 1 :
+      if i % 2 == 0 :
+        i = i / 2
+      else :
+        i = 3 * i + 1
+      count += 1
+    return count
 
 # -------------
 # collatz_print
